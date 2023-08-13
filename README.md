@@ -40,7 +40,7 @@ In order to predict gender based on names, we used the **behind the name** data-
 
 ## Project Collaborators ##
 * Anais Corona Perez
-* Shrivats Sudhir
+* S. Sudhir
 * Yuqi Zhou
 * Jason Lee
 * Gyuho Shim
