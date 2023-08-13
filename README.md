@@ -1,12 +1,5 @@
 # Predicting Sex Based on First Names
 
-Project Collaborators:
-* Anais Corona Perez
-* Shrivats Sudhir
-* Yuqi Zhou
-* Jason Lee
-* Gyuho Shim
-
 This project is intended to explain and report the supervised machine
 learning models used to predict gender on the basis of first name. The data
 includes 25,595 names with labels male, female, and uni-sex respectively.
@@ -44,4 +37,9 @@ After plotting Accuracy, Precision, Recall, and Area under the ROC curve, we can
 # Conclusion
 In order to predict gender based on names, we used the \texttt{behind the name} data-set, conducted rigorous feature engineering, one-hot encoding, and splitting to make the data-set usable in \texttt{scikit}. After running a grid search and plotting the Knn, Logistic Regression, and Decision Trees with the most optimal hyper-parameters, we found that Decision trees had the best validation performance. Following this, we used gradient boosting ensemble classifier with 10,000 boosting stages and learning rate 1.0 to fit the best model that outperforms the previous three models by a considerable margin. 
 
-
+# Project Collaborators:
+* Anais Corona Perez
+* Shrivats Sudhir
+* Yuqi Zhou
+* Jason Lee
+* Gyuho Shim
