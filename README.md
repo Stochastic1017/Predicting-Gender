@@ -16,15 +16,23 @@ The website behind the name allows users to find the history and etymological
 meaning of names in various languages. We used the **given names + gender**
 dataset to train our model, which can be found [here](https://www.behindthename.com/api/download.php).
 
+<img src="https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/Snapshot%20of%20Dataframe.png" width="100" height="200">
+
 ## Feature Engineering ##
 We first removed all rows with labels **uni-sex**, as we were only concerned with binary targets **male** and **female**, which we labelled **0** and **1** respectively. Then, we mapped each name with ISO Latin 1 characters to the equivalent ASCII characters using the **unidecode** package (further details can be found [here](https://pypi.org/project/Unidecode)). This left us with 24,595 names to be used to train our data.
+
+<img src="https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/Pi-chart_male_female.png" width="200" height="200">
 
 ## One-Hot Encoding Names ##
 Consider a $62$ length vector of the following form: 
 ```math
 \begin{pmatrix} \text{a, b, ..., z} & | & \text{A, B, ..., Z} & | \text{ ', , AE, ae, Th, th, @, -, *, `} \end{pmatrix}
 ```
-Each letter of a name can be one-hot encoded in the vector above. In order to make our one-hot encoding **sci-kit** usable, we pad enough rows with zeros so that the total number of rows is equals the length of the largest name in the dataset. In our data, the largest name  is $21$ characters long, i.e., each name in our dataset is encoded as a $(21 \times 62)$ 2-dimensional array, which after flattening gives us a 1-dimensional vector of size $1302$. An interactive-3d PCA projection can be found [here](https://htmlpreview.github.io/?https://github.com/Stochastic1017/Predicting_Gender/blob/main/PCA-3d.html).
+Each letter of a name can be one-hot encoded in the vector above. In order to make our one-hot encoding **sci-kit** usable, we pad enough rows with zeros so that the total number of rows is equals the length of the largest name in the dataset. In our data, the largest name  is $21$ characters long, i.e., each name in our dataset is encoded as a $(21 \times 62)$ 2-dimensional array, which after flattening gives us a 1-dimensional vector of size $1302$. 
+
+An interactive-2d PCA projection of all our one-hot encoded names can be found [here](https://htmlpreview.github.io/?https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/PCA-2d.html).
+
+An interactive-3d PCA projection of all our one-hot encoded names can be found [here](https://htmlpreview.github.io/?https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/PCA-3d.html).
 
 ## Algorithm to Find the Best Classifier ##
 We used **GridSearchCV** with multicore **n_jobs = 5** to find the best hyper-parameters for binary classification using Knn and Logistic Regression. We found that **metric = cosine** and **n_neighbors = 3** were the best hyper-parameters for knn, and **C = 360** was the best hyper-parameter for logistic regression. Comparing validation accuracy's for both those models, along with decision tree classifier with **criterion = entropy** we found that decision tree classifier had the best performance.
