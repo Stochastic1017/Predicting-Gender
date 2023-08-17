@@ -51,10 +51,3 @@ After plotting Accuracy, Precision, Recall, and Area under the ROC curve, we can
 In order to predict gender based on names, we used the **behind the name** data-set, conducted rigorous feature engineering, one-hot encoding, and splitting to make the data-set usable in **scikit**. After running a grid search and plotting the Knn, Logistic Regression, and Decision Trees with the most optimal hyper-parameters, we found that Decision trees had the best validation performance. Following this, we used gradient boosting ensemble classifier with 10,000 boosting stages and learning rate 1.0 to fit the best model that outperforms the previous three models by a considerable margin. 
 
 <img src="https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/Confusion_MAT.png" width="250" height="200"> | <img src="https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/AOC_Curve.png" width="250" height="200">
-
-## Project Collaborators ##
-* Anais Corona Perez
-* S. Sudhir
-* Yuqi Zhou
-* Jason Lee
-* Gyuho Shim
