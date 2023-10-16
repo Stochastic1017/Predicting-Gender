@@ -1,4 +1,4 @@
-# Predicting Sex Based on First Names
+# Predicting Gender Based on First Names
 
 ## Introduction ##
 This project is intended to explain and report the supervised machine
