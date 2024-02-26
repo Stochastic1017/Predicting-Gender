@@ -30,6 +30,31 @@ Consider a $62$ length vector of the following form:
 ```
 Each letter of a name can be one-hot encoded in the vector above. In order to make our one-hot encoding **sci-kit** usable, we pad enough rows with zeros so that the total number of rows is equals the length of the largest name in the dataset. In our data, the largest name  is $21$ characters long, i.e., each name in our dataset is encoded as a $(21 \times 62)$ 2-dimensional array, which after flattening gives us a 1-dimensional vector of size $1302$. 
 
+```python
+extra_characters = [' ', "'", 'AE', 'ae', 'Th', 'th', '@', '-', '*', '`']
+all_letters = list(string.ascii_letters) + extra_characters
+n_letters = len(all_letters)
+
+max_letters = len(max(df['Name'], key = len)) # Length of largest name in the dataset. 
+
+# Find letter index from all_letters.
+def letter_to_index(letter):
+    return all_letters.index(letter)
+
+# Turn a letter into a (1 x 62) numpy array.
+def letter_to_numpy(letter):
+    numpy_char = np.zeros(n_letters)
+    numpy_char[letter_to_index(letter)] = 1
+    return numpy_char
+
+# Turn a name into a (max_letters, ) length numpy array of one-hot letters padded with zeros.
+def name_to_numpy(line):
+    numpy_name = np.zeros((max_letters, n_letters))
+    for li, letter in enumerate(line):
+        numpy_name[li][letter_to_index(letter)] = 1
+    return numpy_name.flatten()
+```
+
 An interactive-2d PCA projection of all our one-hot encoded names can be found [here](https://htmlpreview.github.io/?https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/PCA-2d.html).
 
 An interactive-3d PCA projection of all our one-hot encoded names can be found [here](https://htmlpreview.github.io/?https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/PCA-3d.html).
