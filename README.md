@@ -1,26 +1,34 @@
-***
 # Predicting Gender based on first names #
-***
 
 ## Introduction ##
-This project is intended to explain and report the supervised machine
-learning models used to predict gender on the basis of first name. The data
-includes 25,595 names with labels male, female, and uni-sex respectively.
-Feature engineering was implemented to convert the names in the dataset
-with special characters to ASCII equivalent, and reduce the dataset to
-only account for binary targets male and female. One-hot encoding was
-used to embed these names into 1-dimensional vectors. Finally, after
-splitting the dataset into training, testing, and validating sets, we used
-grid-search and gradient-boosting to evaluate and find the best model.
+
+__Project Overview__
+
+This project is dedicated to exploring and reporting on the use of supervised machine learning models to predict a person's gender based solely on their first name. It encompasses a range of methodologies, from classical machine learning techniques to more advanced artificial neural networks, aiming to identify the most effective model for gender prediction.
+
+__Objectives__
+
+* To Evaluate Different Models: We aim to compare the performance of traditional machine learning models against that of artificial neural networks in predicting gender.
+* To Optimize Prediction Accuracy: By fine-tuning model parameters and experimenting with various feature engineering techniques, the project seeks to optimize the accuracy of predictions.
+* To Provide a Comprehensive Analysis: The project will include detailed documentation of the experiments, including data preprocessing, model training, validation, and results analysis.
 
 ## About the Dataset ##
-The website behind the name allows users to find the history and etymological
-meaning of names in various languages. We used the **given names + gender**
-dataset to train our model, which can be found [here](https://www.behindthename.com/api/download.php).
+The Dataset combines raw counts for first names of male and female babies,
+it consists information from the following:
 
-<img src="https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/Snapshot%20of%20Dataframe.png" width="100" height="200">
+* US: Baby Names from Social Security Applications – National Data, 1880 – 2019.
+* UK: Baby Names in England and Wales Statistical bulletins, 2011 – 2018.
+* Canada: British Columbia 100 Years of Popular Baby names, 1918 – 2018.
+* Australia: Popular Baby Names, Attorney-General’s Department, 1944 – 2019.
+
+Further details can be found [here](https://www.kaggle.com/datasets/gracehephzibahm/gender-by-name).
+
+A snapshot of the dataset is also provided below:
+
+<img src="https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/snapshot.png" width="300" height="300">
 
 ## Feature Engineering ##
+
 We first removed all rows with labels **uni-sex**, as we were only concerned with binary targets **male** and **female**, which we labelled **0** and **1** respectively. Then, we mapped each name with ISO Latin 1 characters to the equivalent ASCII characters using the **unidecode** package (further details can be found [here](https://pypi.org/project/Unidecode)). This left us with 24,595 names to be used to train our data.
 
 <img src="https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/Pi-chart_male_female.png" width="200" height="200">
@@ -78,3 +86,7 @@ After plotting Accuracy, Precision, Recall, and Area under the ROC curve, we can
 In order to predict gender based on names, we used the **behind the name** data-set, conducted rigorous feature engineering, one-hot encoding, and splitting to make the data-set usable in **scikit**. After running a grid search and plotting the Knn, Logistic Regression, and Decision Trees with the most optimal hyper-parameters, we found that Decision trees had the best validation performance. Following this, we used gradient boosting ensemble classifier with 10,000 boosting stages and learning rate 1.0 to fit the best model that outperforms the previous three models by a considerable margin. 
 
 <img src="https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/Confusion_MAT.png" width="250" height="200"> | <img src="https://github.com/Stochastic1017/Predicting-Gender/blob/main/Images/AOC_Curve.png" width="250" height="200">
+
+## Contribution and Collaboration ##
+
+We are eager to expand the diversity and inclusiveness of our dataset by incorporating names from more ethnic backgrounds and regions. If you have access to such datasets or can contribute to the existing dataset, please feel free to share your resources or suggest improvements. Your contributions can help enhance the project's scope and accuracy. Please refer to the [contributing guidelines](https://opensource.guide/how-to-contribute/) for more details on how to get involved.
